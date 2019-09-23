@@ -2,25 +2,22 @@ package com.example.androidtictactoe;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
     Button[][] buttons = new Button[3][3];
     TextView textViewPlayer1, textViewPlayer2, textViewRound;
     Button buttonReset, buttonHistory;
     boolean player1Turn = true;
-    int count = 0, player1Points = 0, player2Points = 0;
-    int round = 0;
+    int count = 0, player1Points = 0, player2Points = 0, round = 0;
     String player1RoundWin = "Winner history player1: ";
     String player2RoundWin = "Winner history player2: ";
     String scoreDraw = "Draw: ";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +29,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonReset = findViewById(R.id.button_reset);
         buttonReset = findViewById(R.id.button_reset);
         buttonHistory = findViewById(R.id.button_history);
-
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 String buttonID = "button_" + i + j;
@@ -41,14 +37,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 buttons[i][j].setOnClickListener(this);
             }
         }
-
         buttonReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 resetGame();
             }
         });
-
         buttonHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
