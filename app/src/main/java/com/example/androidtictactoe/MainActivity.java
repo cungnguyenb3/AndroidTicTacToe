@@ -176,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textViewRound.setText("Round 1");
         player1RoundWin = "Winner history player1: ";
         player2RoundWin = "Winner history player2: ";
+        scoreDraw = "Draw: ";
         updatePointText();
         resetBoard();
     }
