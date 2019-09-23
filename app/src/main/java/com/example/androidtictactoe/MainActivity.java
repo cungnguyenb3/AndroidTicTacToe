@@ -136,19 +136,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         updatePointText();
     }
 
-    void showDialog(String title, String message) {
-        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-        alertDialog.setTitle(title);
-        alertDialog.setMessage(message);
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-        alertDialog.show();
-    }
-
     void updateHistory(int check) {
         textViewRound.setText("Round " + (round + 1));
         if (check == 0) {
@@ -163,16 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void draw() {
-        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
-        alertDialog.setTitle("Result");
-        alertDialog.setMessage("Draw!");
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-        alertDialog.show();
+        showDialog("Result","Draw!");
         resetBoard();
     }
 
@@ -200,5 +178,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         player2RoundWin = "Winner history player2: ";
         updatePointText();
         resetBoard();
+    }
+
+    void showDialog(String title, String message) {
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle(title);
+        alertDialog.setMessage(message);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
     }
 }
